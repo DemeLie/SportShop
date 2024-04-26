@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (searchInput.style.display === 'none' || searchInput.style.display === '') {
             searchInput.style.display = 'block';
         } else {
-            // Если поле ввода уже отображается, отправляем форму поиска
             document.getElementById('searchForm').submit();
         }
     });
@@ -59,7 +58,7 @@ document.getElementById('load-more-btn').addEventListener('click', function () {
         .then(data => {
             console.log(data);
 
-            var container = document.querySelector('.items-row'); // Контейнер для товаров
+            var container = document.querySelector('.items-row');
             data.forEach(item => {
 
                 var card = document.createElement('div');
