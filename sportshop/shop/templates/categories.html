@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block body %}
+     <div class="container-fluid my-4">
+        <div class="row">
+            {% for category in categories %}
+                <div class="col-md-3" >
+                    <a href="{% url 'category_items_view' category.pk %}" class="text-dark text-decoration-none">
+                        <div class="card card-add-border">
+                                    <img class="card-img-top" src="{{ category.images.url }}" alt="{{ category.category_name }}"  style="border-radius: 20px 20px 0 0; height: 250px">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">{{ category.category_name.capitalize }}</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

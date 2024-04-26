@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Muscles</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'script.js' %}" defer></script>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark d-flex justify-content-between">
+    <div class="d-flex">
+        <a class="btn btn-outline-secondary btn-sm mr-1" href="{% url 'questions_view' %}" role="button">Question</a>
+        <a class="btn btn-outline-secondary btn-sm mr-1" href="{% url 'about_view' %}" role="button">About us</a>
+    </div>
+    <div class="flex-grow-1"></div>
+    <div class="d-flex">
+        {% if user.is_authenticated %}
+            <a class="btn btn-outline-secondary btn-sm mr-1" href="{% url 'cart_view' %}"><strong>Cart</strong> <img
+                    src="{% static 'media/icons/cart_icon.png' %}" alt="" width="20" height="20"></a>
+            <a class="btn btn-outline-secondary btn-sm mr-1" href={% url 'logout' %}>Log Out</a>
+        {% else %}
+            <a class="btn btn-outline-secondary btn-sm mr-1" href="{% url 'login' %}">Log In</a>
+            <a class="btn btn-outline-secondary btn-sm mr-1" href="{% url 'register' %}">Register</a>
+        {% endif %}
+    </div>
+</nav>
+
+<div class="jumbotron text-center py-4 my-0">
+    <h1 class="display-1" id="header"><strong>Muscles</strong></h1>
+</div>
+
+<nav class="navbar second-navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'index' %}">
+        <img src="{% static 'media/icons/layout_icon.png' %}" width="30" height="30" class="d-inline-block align-top"
+             alt="">
+        <strong>Muscles</strong>
+    </a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto mx-auto">
+            <li class="nav-item active">
+                <a class="nav-link underline-button" href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'categories' %}">Categories</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'favorite_view' %}">Wishlist <img
+                    src="{% static 'media/icons/favorite.png' %}" alt="" width="20" height="20"></a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" id="searchForm" method="get" action="{% url 'search_view' %}">
+            {% csrf_token %}
+            <input class="form-control mr-sm-2" type="search" name="q" placeholder="Search" aria-label="Search" id="searchInput"
+                   style="display: none;">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="searchButton">Search</button>
+        </form>
+    </div>
+</nav>
+{% block body %}
+    
+    
+{% endblock %}
+
+<div class="bg-dark text-light text-center py-4" id="footer">
+    <div>
+        <p>&copy; 2024 Muscles. All rights reserved.</p>
+    </div>
+</div>
+
+
+</body>
+</html>

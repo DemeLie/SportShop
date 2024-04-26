@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block body %}
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>{{ item.name }}
+                    {% if user.is_authenticated %}
+                        {% if in_watchlist %}
+                            <a class="btn btn-outline-danger btn-sm" href="{% url 'add_to_favorite' item.id %}"><img
+                                    src="{% static 'media/icons/favorite.png' %}" style="width: 20px; height: 20px"
+                                    alt="wish btn"></a>
+                        {% else %}
+                            <a class="btn btn-outline-danger btn-sm" href="{% url 'add_to_favorite' item.id %}"><img
+                                    src="{% static 'media/icons/unfollow_icon.png' %}" style="width: 20px; height: 20px"
+                                    alt="wish btn"></a>
+                        {% endif %}
+                    {% endif %}
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    {% for image in images %}
+                        <img src="{{ image.image.url }}" alt="{{ item.name }}"
+                             class="img-fluid max-width-200 center-img mr-1" height="350" width="200">
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Description</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="lead">{{ item.description }}</p>
+                    </div>
+                </div>
+                <p class="lead mt-2 price"><strong>${{ item.price }}</strong></p>
+                <form action="{% url 'add_to_cart' item.id %}" method="post">
+                    {% csrf_token %}
+                    <div class="d-flex align-items-center form-group">
+                        <input class="form-control mr-1" type="number" name="quantity" placeholder="Quantity"
+                               style="width: 70%;">
+                        <button class="btn btn-success" type="submit">Add to Cart</button>
+                    </div>
+                </form>
+            </div>
+        
+        </div>
+        <div class="row my-4">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Details</h4>
+                        Category: <strong>{{ item.category }}</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

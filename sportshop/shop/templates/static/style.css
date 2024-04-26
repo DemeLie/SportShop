@@ -1,0 +1,58 @@
+.underline-button{
+    text-decoration: underline;
+}
+#header {
+    font-family: "JetBrains Mono Thin", serif;
+}
+#searchForm {
+    position: relative;
+}
+
+#searchInput {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    z-index: 1;
+    transition: width 0.3s ease-in-out;
+    width: 200px;
+}
+.card-add-border {
+
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+.add-border {
+    border-radius: 20px 20px 0 0;
+}
+
+.card-add-border:hover {
+    border-radius: 20px;
+    border-color: gray;
+    box-shadow: 5px 4px 15px rgba(0,0,0,0.5);
+}
+.card-img-top {
+    width: 100%;
+    height: auto; /* Автоматическая высота для поддержки соотношения сторон */
+    object-fit: cover; /* Заполняем контейнер, сохраняя соотношение сторон и обрезаем изображение, чтобы оно не выходило за границы */
+}
+.price {
+    color: red;
+    font-size: 30px;
+    text-decoration: underline;
+}
+.bold-text {
+    font-weight: bold;
+}
+.light-text {
+    font-weight: lighter;
+}
+.qweqwe {
+    color: darkgreen;
+}
+
+
+
+
+

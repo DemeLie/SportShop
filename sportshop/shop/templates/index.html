@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+<head>
+    <title>Muscles - Your Fitness Destination</title>
+</head>
+{% block body %}
+    <div class="card text-center my-4">
+        <div class="card-header">
+            Featured
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+        <div class="card-footer text-muted">
+            2 days ago
+        </div>
+    </div>
+    <div class="container-fluid my-3">
+        <div class="row items-row">
+            {% for item in items %}
+                <div class="col-md-3 items">
+                    <a href="{% url 'item_detail' item.pk %}" class="text-dark text-decoration-none">
+                        <div class="card card-add-border">
+                            {% for image in images %}
+                                {% if image.item == item %}
+                                    <img class="card-img-top add-border" id="c-img" src="{{ image.image.url }}" alt="{{ item.name }}" style="height: 300px; max-width: 350px">
+                                {% endif %}
+                            {% endfor %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ item.name.capitalize }}</h5>
+                                <p class="card-text">${{ item.price }}</p>
+                            </div>
+                            <div class="card-footer" style="border-radius: 0 0 20px 20px">
+                                <small class="text-muted">Created {{ item.created_at }}</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    <div class="row justify-content-center">
+        <div class="col-md-3">
+            <button id="load-more-btn" class="btn btn-lg btn-outline-secondary btn-block">Load More Items</button>
+        </div>
+    </div>
+    
+    </div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="container-fluid my-4">
+    <h1>Search Results For "{{ query }}"</h1>
+        <div class="row">
+            {% for item in results %}
+                <div class="col-md-3" >
+                    <a href="#" class="text-dark text-decoration-none">
+                        <div class="card card-add-border">
+                            {% for image in images %}
+                                {% if image.item == item %}
+                                    <img class="card-img-top add-border" id="c-img" src="{{ image.image.url }}" alt="{{ item.name }}" width="100"  height="250">
+                                {% endif %}
+                            {% endfor %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ item.name.capitalize }}</h5>
+                                <p class="card-text">${{ item.price }}</p>
+                            </div>
+                            <div class="card-footer" style="border-radius: 0 0 20px 20px">
+                                <small class="text-muted">Created {{ item.created_at }}</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% empty %}
+                <p class="list-group-item">No results were found for your request</p>
+            {% endfor %}
+        </div>
+    </div>
+    
+{% endblock %}
