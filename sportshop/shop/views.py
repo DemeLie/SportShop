@@ -1,3 +1,5 @@
+import random
+
 from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
 from django.http import HttpResponseRedirect, JsonResponse
@@ -14,12 +16,14 @@ from .models import User, Item, ItemImages, Categories, Watchlist, CartItem, Car
 def index(request):
     items = Item.objects.all()[:4]
     images = []
+    pages = Item.objects.all()
+    random_page = random.choice(pages)
     for item in items:
 
         first_image = ItemImages.objects.filter(item=item).first()
         if first_image:
                 images.append(first_image)
-    return render(request, 'index.html', {'items': items, 'images': images})
+    return render(request, 'index.html', {'items': items, 'images': images, 'random_page': random_page})
 
 
 def logout_view(request):
