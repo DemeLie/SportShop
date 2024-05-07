@@ -1,28 +1,21 @@
 # SportShop
-## Вступ
 
-Проект інтернет-магазину розробляється з використанням сучасних технологій у веб-розробці для забезпечення зручного та ефективного користувацького досвіду.
+## Introduction
+The SportShop project is being developed using modern web development technologies to provide a convenient and efficient user experience.
 
-## Основні компоненти проекту
+## Key Components of the Project
+1. Frontend
+   - HTML/CSS/JavaScript: HTML will be used for page structure, CSS for styling, and JavaScript for dynamic interface elements.
+2. Backend
+   - Python Django: Django will be used as the backend framework to implement business logic, handle user requests, and interact with the database.
+   - RESTful API: Creation of a RESTful API for communication between the frontend and backend components of the application.
+3. Database
+   - SQLite: Use of a relational database to store information about products, users, orders, etc.
 
-### 1. Frontend
-
-- **HTML/CSS/JavaScript**: Буде використано HTML для структури сторінок, CSS для стилізації та JavaScript для динамічних елементів інтерфейсу.
-
-### 2. Backend
-
-- **Python Django**: Буде використано Django як backend фреймворк для реалізації логіки бізнес-логіки, обробки запитів користувачів та взаємодії з базою даних.
-- **RESTful API**: Створення RESTful API для комунікації між frontend та backend частинами додатку.
-
-### 3. База даних
-
-- **SQLite**: Використання реляційної бази даних для зберігання інформації про товари, користувачів, замовлення тощо.
-
-## Процес розробки
-
-1. **Аналіз вимог**: Визначення функціональних та нефункціональних вимог до системи.
-2. **Проектування**: Проектування структури бази даних, визначення архітектури фронтенду та бекенду.
-3. **Реалізація**: Написання коду для frontend та backend частин додатку, тестування та виправлення помилок.
-4. **Тестування**: Проведення регресійних, модульних та інтеграційних тестів для перевірки працездатності системи.
-5. **Випуск**: Деплой проекту на сервер, перевірка працездатності в реальних умовах.
-6. **Підтримка та розвиток**: Підтримка інтернет-магазину, виправлення помилок та реалізація нового функціоналу.
+## Development Process
+1. Requirements Analysis: Determination of functional and non-functional requirements for the system.
+2. Design: Designing the database structure, defining frontend and backend architecture.
+3. Implementation: Writing code for frontend and backend components of the application, testing, and debugging.
+4. Testing: Conducting regression, unit, and integration tests to ensure system functionality.
+5. Deployment: Deploying the project to a server, testing functionality in real-world conditions.
+6. Support and Development: Supporting the internet store, bug fixing, and implementing new features.
